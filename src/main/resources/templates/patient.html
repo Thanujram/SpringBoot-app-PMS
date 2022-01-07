@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Health Care System</title>
+</head>
+<body>
+
+<div>
+    <h1>Patients List</h1>
+
+    <a th:href = "@{/showNewPatientForm}"> Add Patient </a>
+
+    <table border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>
+
+                Patient First Name
+            </th>
+            <th>
+
+                Age
+            </th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="patient : ${listPatients}">
+            <td th:text="${patient.firstName}"></td>
+            <td th:text="${patient.age}"></td>
+            <td> <a th:href="@{/showUpdatePatient/{id}(id=${patient.id})}">Update</a>
+                <a th:href="@{/deletePatient/{id}(id=${patient.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>staff.html
+    </table>
+
+
+</div>
+</body>
+</html>
